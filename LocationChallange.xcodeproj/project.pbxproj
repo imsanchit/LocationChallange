@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4FC059D3C60D9037285A3CB6 /* Pods_LocationChallange.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DC3EEB0774C6DCC8A482B12 /* Pods_LocationChallange.framework */; };
 		7510B96D1F95F31300D06423 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7510B96C1F95F31300D06423 /* AppDelegate.swift */; };
 		7510B96F1F95F31300D06423 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7510B96E1F95F31300D06423 /* FirstViewController.swift */; };
 		7510B9711F95F31300D06423 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7510B9701F95F31300D06423 /* SecondViewController.swift */; };
@@ -17,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0AE9648E0B5C54DD5E9D149C /* Pods-LocationChallange.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LocationChallange.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LocationChallange/Pods-LocationChallange.debug.xcconfig"; sourceTree = "<group>"; };
+		1B0F294A13B855256F2CA29A /* Pods-LocationChallange.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LocationChallange.release.xcconfig"; path = "Pods/Target Support Files/Pods-LocationChallange/Pods-LocationChallange.release.xcconfig"; sourceTree = "<group>"; };
 		7510B9691F95F31300D06423 /* LocationChallange.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LocationChallange.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7510B96C1F95F31300D06423 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7510B96E1F95F31300D06423 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -26,6 +29,8 @@
 		7510B9781F95F31300D06423 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7510B97A1F95F31300D06423 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7510B9811F96065000D06423 /* AnnotationMapVIew.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnotationMapVIew.swift; sourceTree = "<group>"; };
+		75AD50EF1FA07B310090BED1 /* LocationChallange-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LocationChallange-Bridging-Header.h"; sourceTree = "<group>"; };
+		9DC3EEB0774C6DCC8A482B12 /* Pods_LocationChallange.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LocationChallange.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +38,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FC059D3C60D9037285A3CB6 /* Pods_LocationChallange.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +50,8 @@
 			children = (
 				7510B96B1F95F31300D06423 /* LocationChallange */,
 				7510B96A1F95F31300D06423 /* Products */,
+				D8DDCA32B912410081237D68 /* Pods */,
+				C78C2AD42CAF385552D6A821 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -63,6 +71,7 @@
 				7510B9811F96065000D06423 /* AnnotationMapVIew.swift */,
 				7510B9701F95F31300D06423 /* SecondViewController.swift */,
 				7510B9721F95F31300D06423 /* Main.storyboard */,
+				75AD50EF1FA07B310090BED1 /* LocationChallange-Bridging-Header.h */,
 			);
 			path = LocationChallange;
 			sourceTree = "<group>";
@@ -78,6 +87,23 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		C78C2AD42CAF385552D6A821 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9DC3EEB0774C6DCC8A482B12 /* Pods_LocationChallange.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D8DDCA32B912410081237D68 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0AE9648E0B5C54DD5E9D149C /* Pods-LocationChallange.debug.xcconfig */,
+				1B0F294A13B855256F2CA29A /* Pods-LocationChallange.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -85,9 +111,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7510B97D1F95F31300D06423 /* Build configuration list for PBXNativeTarget "LocationChallange" */;
 			buildPhases = (
+				5534D5B33FB70503D72D50CE /* [CP] Check Pods Manifest.lock */,
 				7510B9651F95F31200D06423 /* Sources */,
 				7510B9661F95F31200D06423 /* Frameworks */,
 				7510B9671F95F31200D06423 /* Resources */,
+				20F554F41D2ACBF08E19EF0B /* [CP] Embed Pods Frameworks */,
+				DD5E0F533FF98F5324D957D0 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -111,6 +140,7 @@
 					7510B9681F95F31200D06423 = {
 						CreatedOnToolsVersion = 8.3;
 						DevelopmentTeam = 9AS4EHAHJD;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -145,6 +175,60 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		20F554F41D2ACBF08E19EF0B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LocationChallange/Pods-LocationChallange-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5534D5B33FB70503D72D50CE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LocationChallange-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DD5E0F533FF98F5324D957D0 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-LocationChallange/Pods-LocationChallange-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LocationChallange/Pods-LocationChallange-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		7510B9651F95F31200D06423 /* Sources */ = {
@@ -277,26 +361,33 @@
 		};
 		7510B97E1F95F31300D06423 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0AE9648E0B5C54DD5E9D149C /* Pods-LocationChallange.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 9AS4EHAHJD;
 				INFOPLIST_FILE = LocationChallange/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.LocationChallange;
+				PRODUCT_BUNDLE_IDENTIFIER = com.LocationChallange.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "LocationChallange/LocationChallange-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		7510B97F1F95F31300D06423 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1B0F294A13B855256F2CA29A /* Pods-LocationChallange.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 9AS4EHAHJD;
 				INFOPLIST_FILE = LocationChallange/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.LocationChallange;
+				PRODUCT_BUNDLE_IDENTIFIER = com.LocationChallange.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "LocationChallange/LocationChallange-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

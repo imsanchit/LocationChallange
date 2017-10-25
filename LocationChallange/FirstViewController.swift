@@ -7,10 +7,10 @@
 //
 
 import UIKit
-import MapKit
 
 class FirstViewController: UIViewController , CLLocationManagerDelegate {
-    @IBOutlet var mapView: MKMapView!
+    @IBOutlet weak var mapView: GMSMapView!
+    var locationMarker: GMSMarker!
     @IBOutlet weak var progressView: UIProgressView!
     @IBOutlet weak var visualEffectview: UIVisualEffectView!
     var locationManager = CLLocationManager()
@@ -20,12 +20,12 @@ class FirstViewController: UIViewController , CLLocationManagerDelegate {
     var seconds = 5
     var initialLocation: CLLocation? = nil {
         didSet {
-            setMapViewRegion()
-            addAnnotation(coordinate: (initialLocation?.coordinate)!)
+            mapView.camera = GMSCameraPosition(target: (initialLocation?.coordinate)!, zoom: 15, bearing: 0, viewingAngle: 0)
         }
     }
     var destinationCoordinate: CLLocationCoordinate2D? = nil
     
+    @IBOutlet weak var quitChallange: UIButton!
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var countDownLabel: UILabel!
     @IBOutlet weak var countDownView: UIView!
@@ -37,18 +37,30 @@ class FirstViewController: UIViewController , CLLocationManagerDelegate {
         locationManager.startUpdatingLocation()
         progressView.isHidden = true
         timerLabel.isHidden = true
+        quitChallange.isHidden = true
         countDownView.isHidden = true
     }
     
     @IBAction func playChallange(_ sender: UIButton) {
-        visualEffectview.removeFromSuperview()
-        mapView.isHidden = true
+        
         showCountDown()
+    }
+    
+    @IBAction func quitCHallange(_ sender: UIButton) {
+        searchDestinationTimer.invalidate()
+        progressView.isHidden = true
+        timerLabel.isHidden = true
+        quitChallange.isHidden = true
+        countDownView.isHidden = true
+        visualEffectview.isHidden = false
+        mapView.isHidden = false
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         if status == .authorizedWhenInUse {
             locationManager.startUpdatingLocation()
+            mapView.isMyLocationEnabled = true
+            mapView.settings.myLocationButton = true
         }
     }
     
@@ -58,19 +70,28 @@ class FirstViewController: UIViewController , CLLocationManagerDelegate {
             initialLocation = location
             return
         }
-
         guard let destinationCoordinate = destinationCoordinate else { return }
-        
         let distance:Float = Float(location.distance(from: CLLocation(latitude: destinationCoordinate.latitude, longitude: destinationCoordinate.longitude)))
-        print(distance)
-        print("distance is \(distance)")
         calculateProgress(distance: Float(distance))
         if distance == 0 {
             searchDestinationTimer.invalidate()
             saveRecord()
             locationManager.stopUpdatingLocation()
-            
         }
+    }
+    
+    
+    func setuplocationMarker(coordinate: CLLocationCoordinate2D, title: String) {
+        if locationMarker != nil {
+            locationMarker.map = nil
+        }
+        locationMarker = GMSMarker(position: coordinate)
+        locationMarker.map = mapView
+        locationMarker.title = title
+        locationMarker.appearAnimation = .pop
+        locationMarker.icon = GMSMarker.markerImage(with: UIColor.red)
+        locationMarker.opacity = 0.75
+        locationMarker.isFlat = true
     }
     
     private func calculateProgress(distance: Float) {
@@ -88,6 +109,8 @@ class FirstViewController: UIViewController , CLLocationManagerDelegate {
     private func showCountDown() {
         seconds = 5
         countDownTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateCountDownLabel), userInfo: nil, repeats: true)
+        visualEffectview.isHidden = true
+        mapView.isHidden = true
         makeRandomDestination()
     }
 
@@ -102,8 +125,10 @@ class FirstViewController: UIViewController , CLLocationManagerDelegate {
             countDownView.isHidden = true
             progressView.isHidden = false
             timerLabel.isHidden = false
+            quitChallange.isHidden = false
             mapView.isHidden = false
             searchDestinationSeconds = 0
+            timerLabel.text = ""
             searchDestinationTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimerLabel), userInfo: nil, repeats: true)
         }
     }
@@ -111,18 +136,6 @@ class FirstViewController: UIViewController , CLLocationManagerDelegate {
     func updateTimerLabel() {
         searchDestinationSeconds = searchDestinationSeconds + 1
         timerLabel.text = searchDestinationSeconds.description
-    }
-    
-    private func setMapViewRegion() {
-        let regionRadius: CLLocationDistance = 1000
-        let region = MKCoordinateRegionMakeWithDistance((initialLocation?.coordinate)!, regionRadius * 2, regionRadius * 2)
-        mapView.setRegion(region, animated: true)
-    }
-    
-    private func addAnnotation(coordinate: CLLocationCoordinate2D) {
-        let title = "Lat: " + coordinate.latitude.description + " Long: " + coordinate.longitude.description
-        let annotationMapVIew = AnnotationMapVIew(title: title, subtitle: "", coordinate: coordinate)
-        mapView.addAnnotation(annotationMapVIew)
     }
     
     private func makeRandomDestination() {
@@ -134,12 +147,9 @@ class FirstViewController: UIViewController , CLLocationManagerDelegate {
             randomLatitude = Double((arc4random_uniform(2) + 0)) * d - 1 + (initialLocation?.coordinate.latitude)!
             randomLong = Double((arc4random_uniform(2) + 0)) * d - 1 + (initialLocation?.coordinate.longitude)!
             distance = Int((initialLocation?.distance(from: CLLocation(latitude: randomLatitude, longitude: randomLong)))!)
-            
         }
         destinationCoordinate = CLLocationCoordinate2D(latitude: randomLatitude, longitude: randomLong)
-        
-        print("Initial distance is \(distance)")
-        addAnnotation(coordinate: destinationCoordinate!)
+        setuplocationMarker(coordinate: destinationCoordinate!, title: "Destination")
         updateProgress(progress: 0.5)
     }
     
@@ -158,9 +168,7 @@ class FirstViewController: UIViewController , CLLocationManagerDelegate {
             alert.addTextField { (textField) in
                 textField.placeholder = "Enter name"
             }
-
             alert.addAction(confirmAction)
-            
             alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil))
             self.present(alert, animated: true, completion: nil)
     }
@@ -170,7 +178,7 @@ class FirstViewController: UIViewController , CLLocationManagerDelegate {
         progressView.trackTintColor = UIColor.white
         switch progress {
         case 0.5:
-            progressView.progressTintColor = UIColor.orange
+            progressView.progressTintColor = UIColor.blue
         case 0..<0.5:
             progressView.progressTintColor = UIColor.red
         case 0.5...1:

@@ -22,15 +22,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="iNb-Ql-96n">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ncK-uc-R7a" customClass="GMSMapView">
                                 <rect key="frame" x="0.0" y="20" width="375" height="598"/>
-                            </mapView>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GBF-KN-vDe">
                                 <rect key="frame" x="320.5" y="80" width="38.5" height="75.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="63"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bmw-qv-XW7">
+                                <rect key="frame" x="224" y="518" width="135" height="50"/>
+                                <color key="backgroundColor" red="0.71248848925985175" green="0.85776333851697661" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="sO5-B6-41q"/>
+                                </constraints>
+                                <state key="normal" title="Quit Challange" image="And"/>
+                                <connections>
+                                    <action selector="quitCHallange:" destination="9pv-A4-QxB" eventType="touchUpInside" id="RgQ-Do-KGI"/>
+                                </connections>
+                            </button>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="K5l-cx-xP6">
                                 <rect key="frame" x="12" y="32" width="351" height="40"/>
                                 <constraints>
@@ -93,27 +105,30 @@
                             <constraint firstItem="iMd-QY-h8n" firstAttribute="top" secondItem="lmD-cV-Uqu" secondAttribute="bottom" id="2qT-FN-MkA"/>
                             <constraint firstItem="lZc-c5-SJe" firstAttribute="top" secondItem="iMd-QY-h8n" secondAttribute="bottom" id="77v-ZF-6uU"/>
                             <constraint firstItem="lZc-c5-SJe" firstAttribute="top" secondItem="O1O-Sc-Etq" secondAttribute="bottom" id="7ED-gy-1zA"/>
-                            <constraint firstAttribute="trailing" secondItem="iNb-Ql-96n" secondAttribute="trailing" id="Jdi-cD-Zka"/>
-                            <constraint firstItem="iNb-Ql-96n" firstAttribute="leading" secondItem="JgI-hd-XE4" secondAttribute="leading" id="KnS-fW-qh6"/>
+                            <constraint firstItem="lZc-c5-SJe" firstAttribute="top" secondItem="ncK-uc-R7a" secondAttribute="bottom" id="Kci-3M-pdE"/>
+                            <constraint firstItem="ncK-uc-R7a" firstAttribute="top" secondItem="lmD-cV-Uqu" secondAttribute="bottom" id="RaW-hy-Rb7"/>
                             <constraint firstItem="O1O-Sc-Etq" firstAttribute="top" secondItem="lmD-cV-Uqu" secondAttribute="bottom" id="RwK-tV-9Rj"/>
-                            <constraint firstItem="iNb-Ql-96n" firstAttribute="top" secondItem="lmD-cV-Uqu" secondAttribute="bottom" id="SrL-W7-8RK"/>
+                            <constraint firstItem="ncK-uc-R7a" firstAttribute="leading" secondItem="JgI-hd-XE4" secondAttribute="leading" id="ToB-kq-Ve7"/>
                             <constraint firstAttribute="trailing" secondItem="iMd-QY-h8n" secondAttribute="trailing" id="VJd-j2-ySK"/>
+                            <constraint firstItem="lZc-c5-SJe" firstAttribute="top" secondItem="Bmw-qv-XW7" secondAttribute="bottom" constant="50" id="Y5X-8u-Xhr"/>
                             <constraint firstAttribute="trailing" secondItem="K5l-cx-xP6" secondAttribute="trailing" constant="12" id="ZE1-Hv-Myh"/>
                             <constraint firstItem="K5l-cx-xP6" firstAttribute="leading" secondItem="JgI-hd-XE4" secondAttribute="leading" constant="12" id="bbE-QO-gRS"/>
                             <constraint firstItem="K5l-cx-xP6" firstAttribute="top" secondItem="lmD-cV-Uqu" secondAttribute="bottom" constant="12" id="cOD-RZ-cgI"/>
-                            <constraint firstItem="lZc-c5-SJe" firstAttribute="top" secondItem="iNb-Ql-96n" secondAttribute="bottom" id="o38-3g-Qbp"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Bmw-qv-XW7" secondAttribute="trailing" id="hFE-xs-ozd"/>
                             <constraint firstAttribute="trailingMargin" secondItem="GBF-KN-vDe" secondAttribute="trailing" id="pQj-dH-aDS"/>
                             <constraint firstItem="GBF-KN-vDe" firstAttribute="top" secondItem="lmD-cV-Uqu" secondAttribute="bottom" constant="60" id="qPy-Lx-Bkb"/>
                             <constraint firstAttribute="trailing" secondItem="O1O-Sc-Etq" secondAttribute="trailing" id="uda-Ge-sFn"/>
                             <constraint firstItem="O1O-Sc-Etq" firstAttribute="leading" secondItem="JgI-hd-XE4" secondAttribute="leading" id="xXY-wW-mwR"/>
+                            <constraint firstAttribute="trailing" secondItem="ncK-uc-R7a" secondAttribute="trailing" id="yDc-ic-dkc"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="First" image="first" id="acW-dT-cKf"/>
                     <connections>
                         <outlet property="countDownLabel" destination="Mre-W9-pJK" id="BvZ-Vg-cXq"/>
                         <outlet property="countDownView" destination="O1O-Sc-Etq" id="d4k-7P-Ort"/>
-                        <outlet property="mapView" destination="iNb-Ql-96n" id="3AK-fn-esw"/>
+                        <outlet property="mapView" destination="ncK-uc-R7a" id="ZzV-S6-eDd"/>
                         <outlet property="progressView" destination="K5l-cx-xP6" id="z2S-Fc-sQc"/>
+                        <outlet property="quitChallange" destination="Bmw-qv-XW7" id="yT9-E8-K3z"/>
                         <outlet property="timerLabel" destination="GBF-KN-vDe" id="Mjo-WK-EQM"/>
                         <outlet property="visualEffectview" destination="iMd-QY-h8n" id="ccF-bH-ktW"/>
                     </connections>
@@ -207,6 +222,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="And" width="16" height="16"/>
         <image name="first" width="30" height="30"/>
         <image name="second" width="30" height="30"/>
     </resources>
